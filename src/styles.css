@@ -2,11 +2,11 @@
 
 /* Custom Color Palette Variables */
 :root {
-  --harvest-gold: #E1A36F;
-  --citrus: #DEC4B4;
-  --hampton: #E2D8A5;
-  --sea-nymph: #6F9F9C;
-  --smalt-blue: #577E89;
+  --dark-blue: #003049;
+  --red: #D63228;
+  --orange: #F77F00;
+  --yellow: #FCBF49;
+  --cream: #EAE2B7;
 }
 
 html, body {
@@ -16,8 +16,8 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--hampton);
-  color: #2f1f1a;
+  background-color: var(--cream);
+  color: #1a1a1a;
 }
 
 /* Global Dialog Styling */

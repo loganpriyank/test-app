@@ -7,11 +7,11 @@
 @use '@angular/material' as mat;
 
 // Custom color palette based on the provided image
-// Harvest Gold: #E1A36F
-// Citrus: #DEC4B4
-// Hampton: #E2D8A5
-// Sea Nymph: #6F9F9C
-// Smalt Blue: #577E89
+// Dark Blue: #003049
+// Red: #D63228
+// Orange: #F77F00
+// Yellow: #FCBF49
+// Cream: #EAE2B7
 
 $custom-primary-palette: (
   0: #000000,
@@ -30,11 +30,11 @@ $custom-primary-palette: (
   98: #fff0e8,
   99: #fffbff,
   100: #ffffff,
-  // Primary color - Sea Nymph
-  primary: #6F9F9C,
+  // Primary color - Dark Blue
+  primary: #003049,
   on-primary: #ffffff,
-  primary-container: #c8e6e3,
-  on-primary-container: #00201e,
+  primary-container: #b3d4e6,
+  on-primary-container: #001219,
 );
 
 $custom-secondary-palette: (
@@ -54,11 +54,11 @@ $custom-secondary-palette: (
   98: #fff0e8,
   99: #fffbff,
   100: #ffffff,
-  // Secondary color - Harvest Gold
-  primary: #E1A36F,
+  // Secondary color - Orange
+  primary: #F77F00,
   on-primary: #ffffff,
-  primary-container: #ffecd9,
-  on-primary-container: #2e1500,
+  primary-container: #ffd9b3,
+  on-primary-container: #4d2800,
 );
 
 $custom-tertiary-palette: (
@@ -78,11 +78,11 @@ $custom-tertiary-palette: (
   98: #fff0e8,
   99: #fffbff,
   100: #ffffff,
-  // Tertiary color - Smalt Blue
-  primary: #577E89,
+  // Tertiary color - Red
+  primary: #D63228,
   on-primary: #ffffff,
-  primary-container: #d0e4f0,
-  on-primary-container: #0a1e25,
+  primary-container: #ffb3ad,
+  on-primary-container: #410002,
 );
 
 html {
@@ -106,8 +106,8 @@ body {
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
   // variables at https://material.angular.dev/guide/system-variables
-  background-color: #E2D8A5; // Hampton (light cream background)
-  color: #2f1f1a;
+  background-color: #EAE2B7; // Cream (light background)
+  color: #1a1a1a;
   font: var(--mat-sys-body-medium);
 
   // Reset the user agent margin.

@@ -70,12 +70,12 @@ export class GroceryProducts {
   searchTerm = signal<string>('');
 
   // Pagination
-  pageSize = signal<string>(10);
+  pageSize = signal<number>(10);
   pageIndex = signal<number>(0);
   pageSizeOptions = [5, 10, 25, 50];
 
   // Computed signal for paginated data
-  paginatedProducts = computed(()com => {
+  paginatedProducts = computed(() => {
     const filtered = this.filteredProducts();
     const startIndex = this.pageIndex() * this.pageSize();
     const endIndex = startIndex + this.pageSize();
@@ -135,7 +135,7 @@ export class GroceryProducts {
 
   openAddProductDialog() {
     const dialogRef = this.dialog.open(AddProductDialog, {
-      width: '600px',
+      width: '650px',
       maxWidth: '90vw',
       disableClose: false,
       autoFocus: true,
@@ -217,7 +217,7 @@ export class GroceryProducts {
         </div>
       </form>
     </mat-dialog-content>
-    <mat-dialog-actions align="end" class="dialog-actions">
+    <mat-dialog-actions align="end" class="dialog-actions mt-4">
       <button mat-button mat-dialog-close class="cancel-btn">
         <mat-icon>close</mat-icon>
         Cancel
@@ -236,30 +236,30 @@ export class GroceryProducts {
   `,
   styles: [`
     .dialog-header {
-      background: linear-gradient(135deg, #6F9F9C 0%, #577E89 100%);
+      background: linear-gradient(135deg, #F77F00 0%, #003049 100%);
       margin: -24px -24px 0 -24px;
-      padding: 20px 32px;
+      padding: 16px 32px;
       border-radius: 12px 12px 0 0;
     }
 
     .header-content {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
     }
 
     h2 {
       color: white !important;
       margin: 0 !important;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 600;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
 
     .title-icon {
-      font-size: 32px;
-      width: 32px;
-      height: 32px;
+      font-size: 28px;
+      width: 28px;
+      height: 28px;
       color: white;
     }
 
@@ -268,8 +268,8 @@ export class GroceryProducts {
       flex-direction: column;
       gap: 20px;
       padding: 32px 0 24px 0;
-      min-width: 550px;
-      max-width: 550px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .form-group {
@@ -279,7 +279,7 @@ export class GroceryProducts {
     }
 
     .form-label {
-      color: #577E89;
+      color: #003049;
       font-size: 13px;
       font-weight: 600;
       margin: 0;
@@ -291,8 +291,8 @@ export class GroceryProducts {
       width: 100%;
       padding: 14px 16px;
       font-size: 16px;
-      color: #2f1f1a;
-      border: 2px solid #DEC4B4;
+      color: #1a1a1a;
+      border: 2px solid #FCBF49;
       border-radius: 8px;
       background-color: #ffffff;
       transition: all 0.3s ease;
@@ -309,12 +309,12 @@ export class GroceryProducts {
 
     .form-input:focus {
       outline: none;
-      border-color: #6F9F9C;
-      box-shadow: 0 0 0 3px rgba(111, 159, 156, 0.1);
+      border-color: #F77F00;
+      box-shadow: 0 0 0 3px rgba(247, 127, 0, 0.1);
     }
 
     .form-input:hover:not(:focus) {
-      border-color: #577E89;
+      border-color: #003049;
     }
 
     .form-row {
@@ -329,33 +329,39 @@ export class GroceryProducts {
 
 
     .dialog-actions {
-      padding: 24px 0 0 0;
-      gap: 16px;
-      border-top: 2px solid #E2D8A5;
-      margin-top: 16px;
+      padding-top: 28px !important;
+      padding-bottom: 0;
+      gap: 20px;
+      border-top: 2px solid #EAE2B7;
+      margin-top: 28px !important;
       display: flex;
       justify-content: flex-end;
     }
 
     .cancel-btn {
-      color: #577E89 !important;
+      color: #003049 !important;
       font-weight: 600;
       font-size: 15px;
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 10px 24px !important;
-      border: 2px solid #DEC4B4 !important;
+      border: 2px solid #FCBF49 !important;
       border-radius: 8px !important;
       transition: all 0.3s ease;
       min-width: 120px;
       height: 44px;
+      background-color: transparent !important;
     }
 
     .cancel-btn:hover {
-      background-color: rgba(87, 126, 137, 0.08) !important;
-      border-color: #577E89 !important;
+      background-color: rgba(0, 48, 73, 0.08) !important;
+      border-color: #003049 !important;
       transform: translateY(-1px);
+    }
+
+    .cancel-btn .mat-mdc-button-touch-target {
+      height: 44px;
     }
 
     .cancel-btn mat-icon {
@@ -365,7 +371,7 @@ export class GroceryProducts {
     }
 
     .add-btn {
-      background-color: #6F9F9C !important;
+      background-color: #F77F00 !important;
       color: white !important;
       font-weight: 600;
       font-size: 15px;
@@ -377,17 +383,17 @@ export class GroceryProducts {
       transition: all 0.3s ease;
       min-width: 140px;
       height: 44px;
-      box-shadow: 0 2px 8px rgba(111, 159, 156, 0.25);
+      box-shadow: 0 2px 8px rgba(247, 127, 0, 0.25);
     }
 
     .add-btn:hover:not(:disabled) {
-      background-color: #5a8a87 !important;
+      background-color: #d66d00 !important;
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(111, 159, 156, 0.4);
+      box-shadow: 0 6px 16px rgba(247, 127, 0, 0.4);
     }
 
     .add-btn:disabled {
-      background-color: #DEC4B4 !important;
+      background-color: #FCBF49 !important;
       color: #999 !important;
       cursor: not-allowed;
       box-shadow: none;
@@ -458,7 +464,7 @@ export class AddProductDialog {
   `,
   styles: [`
     .delete-title {
-      color: #E1A36F;
+      color: #D63228;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -466,7 +472,7 @@ export class AddProductDialog {
     }
 
     .warning-icon {
-      color: #E1A36F;
+      color: #D63228;
       font-size: 28px;
       width: 28px;
       height: 28px;
@@ -474,19 +480,19 @@ export class AddProductDialog {
 
     .delete-message {
       font-size: 16px;
-      color: #2f1f1a;
+      color: #1a1a1a;
       margin: 16px 0 8px 0;
       line-height: 1.5;
     }
 
     .delete-message strong {
-      color: #577E89;
+      color: #003049;
       font-weight: 600;
     }
 
     .delete-warning {
       font-size: 14px;
-      color: #E1A36F;
+      color: #D63228;
       font-style: italic;
       margin: 8px 0 16px 0;
     }
@@ -497,12 +503,12 @@ export class AddProductDialog {
     }
 
     .cancel-btn {
-      color: #577E89;
+      color: #003049;
       font-weight: 500;
     }
 
     .delete-btn {
-      background-color: #E1A36F !important;
+      background-color: #D63228 !important;
       color: white !important;
       font-weight: 500;
       display: flex;
@@ -511,7 +517,7 @@ export class AddProductDialog {
     }
 
     .delete-btn:hover {
-      background-color: #d89560 !important;
+      background-color: #b82820 !important;
     }
 
     .delete-btn mat-icon {
