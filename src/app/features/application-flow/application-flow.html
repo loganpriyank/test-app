@@ -1,8 +1,139 @@
-<div class="application-flow-container">
-  <h1>Endao Application Flow</h1>
-  <p>This component will be populated with your Figma design.</p>
+<div class="modal-overlay">
+  <div class="modal-container">
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h2 class="modal-title">Create New User</h2>
+      <button class="close-button" (click)="closeModal()" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
 
-  <!-- Use PhpStorm AI Assistant with Figma MCP to generate the actual UI here -->
-  <!-- Prompt: Generate Angular component code from this Figma design: -->
-  <!-- https://www.figma.com/design/BTUpRGvjPQgj9ZuTVLHZTG/Endao-Application-Flow?node-id=21578-118476 -->
+    <!-- Modal Body -->
+    <div class="modal-body">
+      <form class="user-form">
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-input"
+            placeholder="Input"
+            [(ngModel)]="formData.email"
+            name="email"
+          />
+        </div>
+
+        <!-- First Name Field -->
+        <div class="form-group">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            class="form-input"
+            placeholder="Input"
+            [(ngModel)]="formData.firstName"
+            name="firstName"
+          />
+        </div>
+
+        <!-- Last Name Field -->
+        <div class="form-group">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            class="form-input"
+            placeholder="Input"
+            [(ngModel)]="formData.lastName"
+            name="lastName"
+          />
+        </div>
+
+        <!-- Phone Number Field -->
+        <div class="form-group">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            class="form-input"
+            placeholder="Input"
+            [(ngModel)]="formData.phoneNumber"
+            name="phoneNumber"
+          />
+        </div>
+
+        <!-- Roles Section -->
+        <div class="section-divider">
+          <h3 class="section-title">Roles</h3>
+        </div>
+
+        <div class="form-group">
+          <label for="roles" class="form-label">Roles</label>
+          <select
+            id="roles"
+            class="form-select"
+            [(ngModel)]="formData.selectedRole"
+            name="roles"
+          >
+            <option value="" disabled selected>Select Role</option>
+            <option *ngFor="let role of availableRoles" [value]="role">{{ role }}</option>
+          </select>
+        </div>
+
+        <!-- Selected Role Tag -->
+        <div class="tag-container" *ngIf="formData.selectedRole">
+          <span class="tag tag-role">
+            {{ formData.selectedRole }}
+            <button class="tag-remove" (click)="removeRole()" aria-label="Remove role">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <circle cx="6" cy="6" r="6" fill="white"/>
+                <path d="M4 4L8 8M4 8L8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </span>
+        </div>
+
+        <!-- Tags Section -->
+        <div class="section-divider">
+          <h3 class="section-title">Tags</h3>
+        </div>
+
+        <div class="form-group">
+          <label for="tags" class="form-label">Tag</label>
+          <select
+            id="tags"
+            class="form-select"
+            [(ngModel)]="formData.selectedTag"
+            name="tags"
+            (change)="addTag()"
+          >
+            <option value="" disabled selected>Select Tag</option>
+            <option *ngFor="let tag of availableTags" [value]="tag">{{ tag }}</option>
+          </select>
+        </div>
+
+        <!-- Selected Tag -->
+        <div class="tag-container" *ngIf="formData.addedTag">
+          <span class="tag tag-location">
+            {{ formData.addedTag }}
+            <button class="tag-remove" (click)="removeTag()" aria-label="Remove tag">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <circle cx="6" cy="6" r="6" fill="white"/>
+                <path d="M4 4L8 8M4 8L8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="modal-footer">
+      <button class="btn btn-cancel" (click)="cancel()">Cancel</button>
+      <button class="btn btn-save" (click)="save()">Save</button>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,115 @@
+
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+// Custom color palette based on the provided image
+// Harvest Gold: #E1A36F
+// Citrus: #DEC4B4
+// Hampton: #E2D8A5
+// Sea Nymph: #6F9F9C
+// Smalt Blue: #577E89
+
+$custom-primary-palette: (
+  0: #000000,
+  10: #1a1110,
+  20: #2f1f1a,
+  25: #3b2820,
+  30: #473126,
+  35: #533a2c,
+  40: #5f4332,
+  50: #7a5a45,
+  60: #96725a,
+  70: #b28b70,
+  80: #cfa686,
+  90: #ecc19d,
+  95: #fad9c4,
+  98: #fff0e8,
+  99: #fffbff,
+  100: #ffffff,
+  // Primary color - Sea Nymph
+  primary: #6F9F9C,
+  on-primary: #ffffff,
+  primary-container: #c8e6e3,
+  on-primary-container: #00201e,
+);
+
+$custom-secondary-palette: (
+  0: #000000,
+  10: #1a1110,
+  20: #2f1f1a,
+  25: #3b2820,
+  30: #473126,
+  35: #533a2c,
+  40: #5f4332,
+  50: #7a5a45,
+  60: #96725a,
+  70: #b28b70,
+  80: #cfa686,
+  90: #ecc19d,
+  95: #fad9c4,
+  98: #fff0e8,
+  99: #fffbff,
+  100: #ffffff,
+  // Secondary color - Harvest Gold
+  primary: #E1A36F,
+  on-primary: #ffffff,
+  primary-container: #ffecd9,
+  on-primary-container: #2e1500,
+);
+
+$custom-tertiary-palette: (
+  0: #000000,
+  10: #1a1110,
+  20: #2f1f1a,
+  25: #3b2820,
+  30: #473126,
+  35: #533a2c,
+  40: #5f4332,
+  50: #7a5a45,
+  60: #96725a,
+  70: #b28b70,
+  80: #cfa686,
+  90: #ecc19d,
+  95: #fad9c4,
+  98: #fff0e8,
+  99: #fffbff,
+  100: #ffffff,
+  // Tertiary color - Smalt Blue
+  primary: #577E89,
+  on-primary: #ffffff,
+  primary-container: #d0e4f0,
+  on-primary-container: #0a1e25,
+);
+
+html {
+  @include mat.theme((
+    color: (
+      primary: $custom-primary-palette,
+      secondary: $custom-secondary-palette,
+      tertiary: $custom-tertiary-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: #E2D8A5; // Hampton (light cream background)
+  color: #2f1f1a;
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+}

@@ -1,0 +1,325 @@
+.grocery-products-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+h1 {
+  margin: 0;
+  color: #577E89; /* Smalt Blue */
+  font-weight: 600;
+  font-size: 28px;
+  white-space: nowrap;
+}
+
+.add-button {
+  background-color: #6F9F9C !important; /* Sea Nymph */
+  color: white !important;
+  font-weight: 500;
+  padding: 0 24px;
+  height: 42px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(111, 159, 156, 0.3);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.add-button:hover {
+  background-color: #5a8885 !important;
+  box-shadow: 0 4px 8px rgba(111, 159, 156, 0.4);
+  transform: translateY(-2px);
+}
+
+.add-button mat-icon {
+  margin-right: 8px;
+}
+
+.search-field {
+  flex: 1;
+  max-width: 500px;
+  margin: 0;
+}
+
+.table-container {
+  box-shadow: 0 4px 8px rgba(87, 126, 137, 0.15);
+  border-radius: 12px;
+  border: 2px solid #6F9F9C; /* Sea Nymph */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.products-table {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.table-wrapper {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.products-table th {
+  font-weight: 600;
+  background-color: #6F9F9C; /* Sea Nymph */
+  color: #ffffff;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.products-table td,
+.products-table th {
+  padding: 16px;
+  border-bottom: 1px solid #DEC4B4; /* Citrus */
+}
+
+.mat-row:hover {
+  background-color: #f5f1e8; /* Light tint of Hampton */
+}
+
+.mat-row:nth-child(even) {
+  background-color: #faf8f2;
+}
+
+.mat-cell[colspan] {
+  text-align: center;
+  padding: 32px;
+  color: #577E89; /* Smalt Blue */
+  font-style: italic;
+}
+
+/* Custom button colors */
+::ng-deep .mat-mdc-icon-button.mat-primary {
+  color: #6F9F9C !important; /* Sea Nymph */
+}
+
+::ng-deep .mat-mdc-icon-button.mat-warn {
+  color: #E1A36F !important; /* Harvest Gold */
+}
+
+::ng-deep .mat-mdc-icon-button:hover {
+  background-color: rgba(111, 159, 156, 0.1);
+}
+
+/* Search field styling */
+::ng-deep .search-field .mat-mdc-form-field-focus-overlay {
+  background-color: #6F9F9C;
+}
+
+::ng-deep .search-field .mat-mdc-text-field-wrapper {
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+/* Paginator styling */
+::ng-deep .mat-mdc-paginator {
+  background: linear-gradient(to bottom, #ffffff 0%, #faf8f2 100%);
+  border-top: 3px solid #6F9F9C;
+  color: #577E89;
+  flex-shrink: 0;
+  box-shadow: 0 -2px 8px rgba(111, 159, 156, 0.1);
+}
+
+::ng-deep .mat-mdc-paginator-container {
+  padding: 16px 24px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button {
+  color: #6F9F9C !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background-color: transparent;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button:hover:not(:disabled) {
+  background-color: rgba(111, 159, 156, 0.1) !important;
+  transform: scale(1.05);
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button:disabled {
+  color: #DEC4B4 !important;
+  opacity: 0.5;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button .mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+::ng-deep .mat-mdc-select-value {
+  color: #577E89 !important;
+  font-weight: 600;
+}
+
+::ng-deep .mat-mdc-paginator-page-size-label,
+::ng-deep .mat-mdc-paginator-range-label {
+  color: #577E89 !important;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0 16px;
+}
+
+::ng-deep .mat-mdc-paginator-page-size {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+  min-height: 40px;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-text-field-wrapper {
+  background-color: #ffffff;
+  border: 2px solid #DEC4B4;
+  border-radius: 8px;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-text-field-wrapper:hover {
+  border-color: #6F9F9C;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-select {
+  font-weight: 600;
+  color: #577E89;
+}
+
+::ng-deep .mat-mdc-paginator-navigation-first,
+::ng-deep .mat-mdc-paginator-navigation-previous,
+::ng-deep .mat-mdc-paginator-navigation-next,
+::ng-deep .mat-mdc-paginator-navigation-last {
+  margin: 0 4px;
+}
+
+/* Dialog styling */
+::ng-deep .mat-mdc-dialog-container {
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(87, 126, 137, 0.2);
+}
+
+::ng-deep .mat-mdc-dialog-title {
+  color: #577E89;
+  font-weight: 600;
+  font-size: 24px;
+  padding: 24px 24px 16px;
+}
+
+::ng-deep .mat-mdc-dialog-content {
+  padding: 0 24px;
+}
+
+::ng-deep .mat-mdc-dialog-actions {
+  padding: 16px 24px 24px;
+}
+
+::ng-deep .mat-mdc-raised-button.mat-primary {
+  background-color: #6F9F9C !important;
+  color: white !important;
+}
+
+::ng-deep .mat-mdc-raised-button.mat-primary:hover {
+  background-color: #5a8885 !important;
+}
+
+::ng-deep .mat-mdc-outlined-text-field {
+  border-color: #DEC4B4 !important;
+}
+
+::ng-deep .mat-mdc-outlined-text-field:focus-within {
+  border-color: #6F9F9C !important;
+}
+
+/* Dialog Backdrop */
+::ng-deep .cdk-overlay-backdrop {
+  background-color: rgba(47, 31, 26, 0.5) !important;
+}
+
+/* Dialog Container Styling */
+::ng-deep .mat-mdc-dialog-container {
+  background-color: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2) !important;
+  overflow: visible !important;
+  max-height: 90vh !important;
+}
+
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: #ffffff !important;
+  border-radius: 12px !important;
+  overflow: visible !important;
+}
+
+::ng-deep .mat-mdc-dialog-content {
+  background-color: #ffffff !important;
+  padding: 0 32px !important;
+  overflow-y: visible !important;
+  max-height: none !important;
+}
+
+::ng-deep .mat-mdc-dialog-title {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+::ng-deep .mat-mdc-dialog-actions {
+  padding: 0 32px 32px 32px !important;
+  margin: 0 !important;
+}
+
+/* Confirmation Dialog Styling */
+::ng-deep .mat-mdc-dialog-container .delete-title {
+  border-bottom: 2px solid #E1A36F;
+  padding-bottom: 12px;
+  margin-bottom: 0;
+}
+
+::ng-deep .mat-mdc-dialog-container .delete-btn {
+  transition: all 0.3s ease;
+}
+
+::ng-deep .mat-mdc-dialog-container .delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(225, 163, 111, 0.3);
+}
+
+::ng-deep .mat-mdc-dialog-container .cancel-btn:hover {
+  background-color: rgba(87, 126, 137, 0.1);
+}
