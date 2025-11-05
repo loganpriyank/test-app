@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Custom Color Palette Variables */
+:root {
+  --dark-blue: #003049;
+  --red: #D63228;
+  --orange: #F77F00;
+  --yellow: #FCBF49;
+  --cream: #EAE2B7;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--cream);
+  color: #1a1a1a;
+}
+
+/* Global Dialog Styling */
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: #ffffff !important;
+}
+
+.cdk-overlay-pane {
+  max-width: 90vw !important;
+}
