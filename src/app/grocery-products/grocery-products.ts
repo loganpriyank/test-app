@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatDialog, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -30,13 +31,14 @@ export interface GroceryProduct {
     MatIconModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatProgressBarModule,
   ],
   templateUrl: './grocery-products.html',
   styleUrl: './grocery-products.css',
 })
 export class GroceryProducts {
   private dialog = inject(MatDialog);
-  displayedColumns: string[] = ['name', 'category', 'price', 'quantity', 'actions'];
+  displayedColumns: string[] = ['image', 'name', 'category', 'price', 'quantity', 'actions'];
 
   products = signal<GroceryProduct[]>([
     { id: 1, name: 'Apples', category: 'Fruits', price: 3.99, quantity: 50 },
@@ -70,7 +72,7 @@ export class GroceryProducts {
   searchTerm = signal<string>('');
 
   // Pagination
-  pageSize = signal<number>(10);
+  pageSize = signal<string>(10);
   pageIndex = signal<number>(0);
   pageSizeOptions = [5, 10, 25, 50];
 
@@ -179,6 +181,7 @@ export class GroceryProducts {
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
+    MatProgressBarModule,
   ],
   template: `
     <div class="dialog-header">
@@ -212,8 +215,52 @@ export class GroceryProducts {
         </div>
 
         <div class="form-group">
-          <label class="form-label">Image URL (Optional)</label>
-          <input class="form-input" [(ngModel)]="product.imageUrl" name="imageUrl" />
+          <label class="form-label">Product Image (Optional)</label>
+
+          @if (isUploading) {
+            <div class="upload-progress-container">
+              <mat-icon class="upload-icon">cloud_upload</mat-icon>
+              <p class="upload-text">Uploading image...</p>
+              <mat-progress-bar
+                mode="determinate"
+                [value]="uploadProgress"
+                class="upload-progress-bar"
+              ></mat-progress-bar>
+              <p class="upload-percentage">{{ uploadProgress }}%</p>
+            </div>
+          } @else if (!imagePreview) {
+            <div
+              class="image-upload-area"
+              [class.dragging]="isDragging"
+              (dragover)="onDragOver($event)"
+              (dragleave)="onDragLeave($event)"
+              (drop)="onDrop($event)"
+              (click)="fileInput.click()"
+            >
+              <mat-icon class="upload-icon">cloud_upload</mat-icon>
+              <p class="upload-text">Drag & drop an image here</p>
+              <p class="upload-subtext">or click to browse</p>
+              <input
+                #fileInput
+                type="file"
+                accept="image/*"
+                (change)="onFileSelected($event)"
+                style="display: none;"
+              />
+            </div>
+          } @else {
+            <div class="image-preview-container">
+              <img [src]="imagePreview" alt="Product preview" class="image-preview" />
+              <button
+                type="button"
+                class="remove-image-btn"
+                (click)="removeImage()"
+                mat-icon-button
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          }
         </div>
       </form>
     </mat-dialog-content>
@@ -236,7 +283,7 @@ export class GroceryProducts {
   `,
   styles: [`
     .dialog-header {
-      background: linear-gradient(135deg, #F77F00 0%, #003049 100%);
+      background: linear-gradient(135deg, #0077B6 0%, #002855 100%);
       margin: -24px -24px 0 -24px;
       padding: 16px 32px;
       border-radius: 12px 12px 0 0;
@@ -279,7 +326,7 @@ export class GroceryProducts {
     }
 
     .form-label {
-      color: #003049;
+      color: #002855;
       font-size: 13px;
       font-weight: 600;
       margin: 0;
@@ -292,7 +339,7 @@ export class GroceryProducts {
       padding: 14px 16px;
       font-size: 16px;
       color: #1a1a1a;
-      border: 2px solid #FCBF49;
+      border: 2px solid #90B8D0;
       border-radius: 8px;
       background-color: #ffffff;
       transition: all 0.3s ease;
@@ -309,12 +356,12 @@ export class GroceryProducts {
 
     .form-input:focus {
       outline: none;
-      border-color: #F77F00;
-      box-shadow: 0 0 0 3px rgba(247, 127, 0, 0.1);
+      border-color: #0077B6;
+      box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
     }
 
     .form-input:hover:not(:focus) {
-      border-color: #003049;
+      border-color: #002855;
     }
 
     .form-row {
@@ -332,21 +379,21 @@ export class GroceryProducts {
       padding-top: 28px !important;
       padding-bottom: 0;
       gap: 20px;
-      border-top: 2px solid #EAE2B7;
+      border-top: 2px solid #D4E4F0;
       margin-top: 28px !important;
       display: flex;
       justify-content: flex-end;
     }
 
     .cancel-btn {
-      color: #003049 !important;
+      color: #002855 !important;
       font-weight: 600;
       font-size: 15px;
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 10px 24px !important;
-      border: 2px solid #FCBF49 !important;
+      border: 2px solid #90B8D0 !important;
       border-radius: 8px !important;
       transition: all 0.3s ease;
       min-width: 120px;
@@ -355,8 +402,8 @@ export class GroceryProducts {
     }
 
     .cancel-btn:hover {
-      background-color: rgba(0, 48, 73, 0.08) !important;
-      border-color: #003049 !important;
+      background-color: rgba(0, 40, 85, 0.08) !important;
+      border-color: #002855 !important;
       transform: translateY(-1px);
     }
 
@@ -371,7 +418,7 @@ export class GroceryProducts {
     }
 
     .add-btn {
-      background-color: #F77F00 !important;
+      background-color: #0077B6 !important;
       color: white !important;
       font-weight: 600;
       font-size: 15px;
@@ -393,7 +440,7 @@ export class GroceryProducts {
     }
 
     .add-btn:disabled {
-      background-color: #FCBF49 !important;
+      background-color: #90B8D0 !important;
       color: #999 !important;
       cursor: not-allowed;
       box-shadow: none;
@@ -401,6 +448,123 @@ export class GroceryProducts {
     }
 
     .add-btn mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+
+    .image-upload-area {
+      border: 2px dashed #90B8D0;
+      border-radius: 12px;
+      padding: 40px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: rgba(144, 184, 208, 0.05);
+    }
+
+    .image-upload-area:hover {
+      border-color: #0077B6;
+      background-color: rgba(0, 119, 182, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .image-upload-area.dragging {
+      border-color: #0077B6;
+      background-color: rgba(0, 119, 182, 0.15);
+      border-width: 3px;
+    }
+
+    .upload-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      color: #0077B6;
+      margin: 0 auto 12px;
+    }
+
+    .upload-text {
+      color: #002855;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+    }
+
+    .upload-subtext {
+      color: #666;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .upload-progress-container {
+      border: 2px solid #90B8D0;
+      border-radius: 12px;
+      padding: 40px 20px;
+      text-align: center;
+      background-color: rgba(144, 184, 208, 0.05);
+    }
+
+    .upload-progress-bar {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      height: 8px;
+      border-radius: 4px;
+    }
+
+    .upload-progress-bar ::ng-deep .mdc-linear-progress__bar-inner {
+      border-color: #0077B6 !important;
+      background-color: #0077B6 !important;
+    }
+
+    .upload-progress-bar ::ng-deep .mdc-linear-progress__buffer {
+      background-color: rgba(0, 119, 182, 0.2) !important;
+    }
+
+    .upload-percentage {
+      color: #0077B6;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 12px 0 0 0;
+    }
+
+    .image-preview-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #90B8D0;
+    }
+
+    .image-preview {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 300px;
+      object-fit: cover;
+    }
+
+    .remove-image-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background-color: #004B87 !important;
+      color: white !important;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .remove-image-btn:hover {
+      background-color: #b82820 !important;
+      transform: scale(1.1);
+    }
+
+    .remove-image-btn mat-icon {
       font-size: 20px;
       width: 20px;
       height: 20px;
@@ -415,6 +579,80 @@ export class AddProductDialog {
     quantity: 0,
     imageUrl: ''
   };
+
+  isDragging = false;
+  imagePreview: string | null = null;
+  uploadProgress = 0;
+  isUploading = false;
+
+  onDragOver(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isDragging = true;
+  }
+
+  onDragLeave(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isDragging = false;
+  }
+
+  onDrop(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isDragging = false;
+
+    const files = event.dataTransfer?.files;
+    if (files && files.length > 0) {
+      this.handleFile(files[0]);
+    }
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.handleFile(input.files[0]);
+    }
+  }
+
+  handleFile(file: File): void {
+    if (file.type.startsWith('image/')) {
+      this.isUploading = true;
+      this.uploadProgress = 0;
+
+      const reader = new FileReader();
+
+      reader.onprogress = (e) => {
+        if (e.lengthComputable) {
+          this.uploadProgress = Math.round((e.loaded / e.total) * 100);
+        }
+      };
+
+      reader.onload = (e) => {
+        this.uploadProgress = 100;
+        setTimeout(() => {
+          this.imagePreview = e.target?.result as string;
+          this.product.imageUrl = this.imagePreview;
+          this.isUploading = false;
+          this.uploadProgress = 0;
+        }, 300); // Small delay to show 100% completion
+      };
+
+      reader.onerror = () => {
+        this.isUploading = false;
+        this.uploadProgress = 0;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
+
+  removeImage(): void {
+    this.imagePreview = null;
+    this.product.imageUrl = '';
+    this.uploadProgress = 0;
+    this.isUploading = false;
+  }
 
   isFormValid(): boolean {
     return !!(
@@ -464,7 +702,7 @@ export class AddProductDialog {
   `,
   styles: [`
     .delete-title {
-      color: #D63228;
+      color: #004B87;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -472,7 +710,7 @@ export class AddProductDialog {
     }
 
     .warning-icon {
-      color: #D63228;
+      color: #004B87;
       font-size: 28px;
       width: 28px;
       height: 28px;
@@ -486,13 +724,13 @@ export class AddProductDialog {
     }
 
     .delete-message strong {
-      color: #003049;
+      color: #002855;
       font-weight: 600;
     }
 
     .delete-warning {
       font-size: 14px;
-      color: #D63228;
+      color: #004B87;
       font-style: italic;
       margin: 8px 0 16px 0;
     }
@@ -503,12 +741,12 @@ export class AddProductDialog {
     }
 
     .cancel-btn {
-      color: #003049;
+      color: #002855;
       font-weight: 500;
     }
 
     .delete-btn {
-      background-color: #D63228 !important;
+      background-color: #004B87 !important;
       color: white !important;
       font-weight: 500;
       display: flex;

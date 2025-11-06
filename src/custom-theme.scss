@@ -6,83 +6,83 @@
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
-// Custom color palette based on the provided image
-// Dark Blue: #003049
-// Red: #D63228
-// Orange: #F77F00
-// Yellow: #FCBF49
-// Cream: #EAE2B7
+// Custom color palette - Blue Theme
+// Navy Blue: #002855
+// Deep Blue: #004B87
+// Medium Blue: #0077B6
+// Light Blue: #90B8D0
+// Very Light Blue: #D4E4F0
 
 $custom-primary-palette: (
   0: #000000,
-  10: #1a1110,
-  20: #2f1f1a,
-  25: #3b2820,
-  30: #473126,
-  35: #533a2c,
-  40: #5f4332,
-  50: #7a5a45,
-  60: #96725a,
-  70: #b28b70,
-  80: #cfa686,
-  90: #ecc19d,
-  95: #fad9c4,
-  98: #fff0e8,
-  99: #fffbff,
+  10: #001428,
+  20: #00213d,
+  25: #002855,
+  30: #003566,
+  35: #004077,
+  40: #004B87,
+  50: #0062a8,
+  60: #0077B6,
+  70: #3d8fc4,
+  80: #6aa6d2,
+  90: #90B8D0,
+  95: #c2d9e8,
+  98: #D4E4F0,
+  99: #f0f7fb,
   100: #ffffff,
-  // Primary color - Dark Blue
-  primary: #003049,
+  // Primary color - Navy Blue
+  primary: #002855,
   on-primary: #ffffff,
-  primary-container: #b3d4e6,
-  on-primary-container: #001219,
+  primary-container: #D4E4F0,
+  on-primary-container: #001428,
 );
 
 $custom-secondary-palette: (
   0: #000000,
-  10: #1a1110,
-  20: #2f1f1a,
-  25: #3b2820,
-  30: #473126,
-  35: #533a2c,
-  40: #5f4332,
-  50: #7a5a45,
-  60: #96725a,
-  70: #b28b70,
-  80: #cfa686,
-  90: #ecc19d,
-  95: #fad9c4,
-  98: #fff0e8,
-  99: #fffbff,
+  10: #001428,
+  20: #002d52,
+  25: #003566,
+  30: #004077,
+  35: #004B87,
+  40: #005a9e,
+  50: #0077B6,
+  60: #2d8dc4,
+  70: #5aa3d1,
+  80: #90B8D0,
+  90: #b8cfe0,
+  95: #D4E4F0,
+  98: #e8f1f7,
+  99: #f5f9fc,
   100: #ffffff,
-  // Secondary color - Orange
-  primary: #F77F00,
+  // Secondary color - Medium Blue
+  primary: #0077B6,
   on-primary: #ffffff,
-  primary-container: #ffd9b3,
-  on-primary-container: #4d2800,
+  primary-container: #D4E4F0,
+  on-primary-container: #001428,
 );
 
 $custom-tertiary-palette: (
   0: #000000,
-  10: #1a1110,
-  20: #2f1f1a,
-  25: #3b2820,
-  30: #473126,
-  35: #533a2c,
-  40: #5f4332,
-  50: #7a5a45,
-  60: #96725a,
-  70: #b28b70,
-  80: #cfa686,
-  90: #ecc19d,
-  95: #fad9c4,
-  98: #fff0e8,
-  99: #fffbff,
+  10: #001f33,
+  20: #003555,
+  25: #004066,
+  30: #004B87,
+  35: #00569a,
+  40: #0062ad,
+  50: #0077B6,
+  60: #4d9ac7,
+  70: #73aed5,
+  80: #90B8D0,
+  90: #b8cfe0,
+  95: #D4E4F0,
+  98: #e8f1f7,
+  99: #f5f9fc,
   100: #ffffff,
-  // Tertiary color - Red
-  primary: #D63228,
+  // Tertiary color - Deep Blue
+  primary: #004B87,
   on-primary: #ffffff,
-  primary-container: #ffb3ad,
-  on-primary-container: #410002,
+  primary-container: #90B8D0,
+  on-primary-container: #001428,
 );
 
 html {
@@ -106,7 +106,7 @@ body {
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
   // variables at https://material.angular.dev/guide/system-variables
-  background-color: #EAE2B7; // Cream (light background)
+  background-color: #D4E4F0; // Very Light Blue (light background)
   color: #1a1a1a;
   font: var(--mat-sys-body-medium);
 

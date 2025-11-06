@@ -20,28 +20,28 @@
 
 h1 {
   margin: 0;
-  color: #003049; /* Dark Blue */
+  color: #002855; /* Navy Blue */
   font-weight: 600;
   font-size: 28px;
   white-space: nowrap;
 }
 
 .add-button {
-  background-color: #F77F00 !important; /* Orange */
+  background-color: #0077B6 !important; /* Medium Blue */
   color: white !important;
   font-weight: 500;
   padding: 0 24px;
   height: 42px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(247, 127, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 119, 182, 0.3);
   transition: all 0.3s ease;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .add-button:hover {
-  background-color: #d66d00 !important;
-  box-shadow: 0 4px 8px rgba(247, 127, 0, 0.4);
+  background-color: #005a8f !important;
+  box-shadow: 0 4px 8px rgba(0, 119, 182, 0.4);
   transform: translateY(-2px);
 }
 
@@ -56,9 +56,9 @@ h1 {
 }
 
 .table-container {
-  box-shadow: 0 4px 8px rgba(0, 48, 73, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 40, 85, 0.15);
   border-radius: 12px;
-  border: 2px solid #F77F00; /* Orange */
+  border: 2px solid #0077B6; /* Medium Blue */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@ h1 {
 
 .products-table th {
   font-weight: 600;
-  background-color: #003049; /* Dark Blue */
+  background-color: #002855; /* Navy Blue */
   color: #ffffff;
   font-size: 14px;
   text-transform: uppercase;
@@ -89,40 +89,40 @@ h1 {
 .products-table td,
 .products-table th {
   padding: 16px;
-  border-bottom: 1px solid #FCBF49; /* Yellow */
+  border-bottom: 1px solid #90B8D0; /* Light Blue */
 }
 
 .mat-row:hover {
-  background-color: #f5f2e8; /* Light tint of Cream */
+  background-color: #e8f1f7; /* Light tint of Very Light Blue */
 }
 
 .mat-row:nth-child(even) {
-  background-color: #faf8f2;
+  background-color: #f5f9fc;
 }
 
 .mat-cell[colspan] {
   text-align: center;
   padding: 32px;
-  color: #003049; /* Dark Blue */
+  color: #002855; /* Navy Blue */
   font-style: italic;
 }
 
 /* Custom button colors */
 ::ng-deep .mat-mdc-icon-button.mat-primary {
-  color: #F77F00 !important; /* Orange */
+  color: #0077B6 !important; /* Medium Blue */
 }
 
 ::ng-deep .mat-mdc-icon-button.mat-warn {
-  color: #D63228 !important; /* Red */
+  color: #004B87 !important; /* Deep Blue */
 }
 
 ::ng-deep .mat-mdc-icon-button:hover {
-  background-color: rgba(247, 127, 0, 0.1);
+  background-color: rgba(0, 119, 182, 0.1);
 }
 
 /* Search field styling */
 ::ng-deep .search-field .mat-mdc-form-field-focus-overlay {
-  background-color: #F77F00;
+  background-color: #0077B6;
 }
 
 ::ng-deep .search-field .mat-mdc-text-field-wrapper {
@@ -136,11 +136,11 @@ h1 {
 
 /* Paginator styling */
 ::ng-deep .mat-mdc-paginator {
-  background: linear-gradient(to bottom, #ffffff 0%, #faf8f2 100%);
-  border-top: 3px solid #F77F00;
-  color: #003049;
+  background: linear-gradient(to bottom, #ffffff 0%, #f5f9fc 100%);
+  border-top: 3px solid #0077B6;
+  color: #002855;
   flex-shrink: 0;
-  box-shadow: 0 -2px 8px rgba(247, 127, 0, 0.1);
+  box-shadow: 0 -2px 8px rgba(0, 119, 182, 0.1);
 }
 
 ::ng-deep .mat-mdc-paginator-container {
@@ -152,7 +152,7 @@ h1 {
 }
 
 ::ng-deep .mat-mdc-paginator .mat-mdc-icon-button {
-  color: #F77F00 !important;
+  color: #0077B6 !important;
   width: 40px;
   height: 40px;
   border-radius: 8px;
@@ -161,12 +161,12 @@ h1 {
 }
 
 ::ng-deep .mat-mdc-paginator .mat-mdc-icon-button:hover:not(:disabled) {
-  background-color: rgba(247, 127, 0, 0.1) !important;
+  background-color: rgba(0, 119, 182, 0.1) !important;
   transform: scale(1.05);
 }
 
 ::ng-deep .mat-mdc-paginator .mat-mdc-icon-button:disabled {
-  color: #FCBF49 !important;
+  color: #90B8D0 !important;
   opacity: 0.5;
 }
 
@@ -177,13 +177,13 @@ h1 {
 }
 
 ::ng-deep .mat-mdc-select-value {
-  color: #003049 !important;
+  color: #002855 !important;
   font-weight: 600;
 }
 
 ::ng-deep .mat-mdc-paginator-page-size-label,
 ::ng-deep .mat-mdc-paginator-range-label {
-  color: #003049 !important;
+  color: #002855 !important;
   font-weight: 500;
   font-size: 14px;
   margin: 0 16px;
@@ -207,19 +207,19 @@ h1 {
 
 ::ng-deep .mat-mdc-paginator .mat-mdc-text-field-wrapper {
   background-color: #ffffff;
-  border: 2px solid #FCBF49;
+  border: 2px solid #90B8D0;
   border-radius: 8px;
   padding: 4px 8px;
   transition: all 0.2s ease;
 }
 
 ::ng-deep .mat-mdc-paginator .mat-mdc-text-field-wrapper:hover {
-  border-color: #F77F00;
+  border-color: #0077B6;
 }
 
 ::ng-deep .mat-mdc-paginator .mat-mdc-select {
   font-weight: 600;
-  color: #003049;
+  color: #002855;
 }
 
 ::ng-deep .mat-mdc-paginator-navigation-first,
@@ -232,11 +232,11 @@ h1 {
 /* Dialog styling */
 ::ng-deep .mat-mdc-dialog-container {
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 48, 73, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 40, 85, 0.2);
 }
 
 ::ng-deep .mat-mdc-dialog-title {
-  color: #003049;
+  color: #002855;
   font-weight: 600;
   font-size: 24px;
   padding: 24px 24px 16px;
@@ -251,25 +251,25 @@ h1 {
 }
 
 ::ng-deep .mat-mdc-raised-button.mat-primary {
-  background-color: #F77F00 !important;
+  background-color: #0077B6 !important;
   color: white !important;
 }
 
 ::ng-deep .mat-mdc-raised-button.mat-primary:hover {
-  background-color: #d66d00 !important;
+  background-color: #005a8f !important;
 }
 
 ::ng-deep .mat-mdc-outlined-text-field {
-  border-color: #FCBF49 !important;
+  border-color: #90B8D0 !important;
 }
 
 ::ng-deep .mat-mdc-outlined-text-field:focus-within {
-  border-color: #F77F00 !important;
+  border-color: #0077B6 !important;
 }
 
 /* Dialog Backdrop */
 ::ng-deep .cdk-overlay-backdrop {
-  background-color: rgba(0, 48, 73, 0.5) !important;
+  background-color: rgba(0, 40, 85, 0.5) !important;
 }
 
 /* Dialog Container Styling */
@@ -308,7 +308,7 @@ h1 {
 
 /* Confirmation Dialog Styling */
 ::ng-deep .mat-mdc-dialog-container .delete-title {
-  border-bottom: 2px solid #D63228;
+  border-bottom: 2px solid #004B87;
   padding-bottom: 12px;
   margin-bottom: 0;
 }
@@ -319,16 +319,16 @@ h1 {
 
 ::ng-deep .mat-mdc-dialog-container .delete-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(214, 50, 40, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 75, 135, 0.3);
 }
 
 ::ng-deep .mat-mdc-dialog-container .cancel-btn:hover {
-  background-color: rgba(0, 48, 73, 0.1);
+  background-color: rgba(0, 40, 85, 0.1);
 }
 
 /* Fix Material button styling in dialogs */
 ::ng-deep .mat-mdc-dialog-actions .mat-mdc-button {
-  border: 2px solid #FCBF49 !important;
+  border: 2px solid #90B8D0 !important;
   background-color: transparent !important;
 }
 
@@ -340,4 +340,41 @@ h1 {
 ::ng-deep .mat-mdc-dialog-actions .mat-mdc-raised-button .mat-mdc-button-persistent-ripple,
 ::ng-deep .mat-mdc-dialog-actions .mat-mdc-raised-button .mat-mdc-button-ripple {
   border-radius: 8px !important;
+}
+
+/* Product Image Styles */
+.product-thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #90B8D0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.product-thumbnail:hover {
+  transform: scale(1.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.no-image-placeholder {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(144, 184, 208, 0.1);
+  border: 2px dashed #90B8D0;
+  border-radius: 8px;
+  color: #999;
+}
+
+.no-image-placeholder mat-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  color: #90B8D0;
 }

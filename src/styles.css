@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* Custom Color Palette Variables */
+/* Custom Color Palette Variables - Blue Theme */
 :root {
-  --dark-blue: #003049;
-  --red: #D63228;
-  --orange: #F77F00;
-  --yellow: #FCBF49;
-  --cream: #EAE2B7;
+  --navy-blue: #002855;
+  --deep-blue: #004B87;
+  --medium-blue: #0077B6;
+  --light-blue: #90B8D0;
+  --very-light-blue: #D4E4F0;
 }
 
 html, body {
@@ -16,7 +16,7 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--cream);
+  background-color: var(--very-light-blue);
   color: #1a1a1a;
 }
 
